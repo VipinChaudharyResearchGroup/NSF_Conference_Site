@@ -2,7 +2,7 @@
 <html lang="{{ site.lang | default: "en-US" }}">
   <script>
     function set_visible(page, vis) {
-      let el = document.getElementById(`${s}_section`);
+      let el = document.getElementById(`${page}_section`);
       if (el !== undefined) {
         el.style.display = vis ? 'block' : 'none';
       }
@@ -55,7 +55,7 @@
         <ul></ul>
       </nav>
       <section id="main_section">
-          {{ content }}
+        {{ content }}
       </section>
       <section id="nsf_section">
         hi
