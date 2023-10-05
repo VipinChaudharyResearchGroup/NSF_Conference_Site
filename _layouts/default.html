@@ -1,5 +1,18 @@
 <!doctype html>
 <html lang="{{ site.lang | default: "en-US" }}">
+  <script>
+    function set_visible(page, vis) {
+      let el = document.getElementById(`${s}_section`);
+      if (el !== undefined) {
+        el.style.display = vis ? 'block' : 'none';
+      }
+    }
+
+    function navigate(page) {
+      ['main', 'nsf'].forEach(s => set_visible(s, false));
+      set_visible(path, true)
+    }
+  </script>
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,7 +28,6 @@
 
   </head>
   <body>
-
       <header>
         <h1>{{ site.title | default: site.github.repository_name }}</h1>
         <p>{{ site.description | default: site.github.project_tagline }}</p>
@@ -24,6 +36,8 @@
       <div id="banner">
         <span id="logo"></span>
 
+        <button class="button" onClick="navigate('main')">Homepage</button>
+        <button class="button" onClick="navigate('nsf')">NSF Conference</button>
         <a href="{{ site.github.owner_url }}" class="button fork"><strong>View On GitHub</strong></a>
         {% if site.show_downloads %}
           <div class="downloads">
@@ -40,9 +54,11 @@
       <nav>
         <ul></ul>
       </nav>
-      <section>
-        {{ content }}
-
+      <section id="main_section">
+          {{ content }}
+      </section>
+      <section id="nsf_section">
+        hi
       </section>
       <footer>
         {% if site.github.is_project_page %}
