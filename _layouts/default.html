@@ -36,9 +36,9 @@
       <div id="banner">
         <span id="logo"></span>
 
-        <button class="button fork" onClick="navigate('main')">Homepage</button>
-        <button class="button fork" onClick="navigate('nsf')">NSF Conference</button>
-        <a href="{{ site.github.owner_url }}" class="button fork"><strong>View On GitHub</strong></a>
+        <button class="button" onClick="navigate('main')">Homepage</button>
+        <button class="button" onClick="navigate('nsf')">NSF Conference</button>
+        <a href="{{ site.github.owner_url }}" class="button"><strong>View On GitHub</strong></a>
 
         {% if site.show_downloads %}
           <div class="downloads">
@@ -59,7 +59,10 @@
         {{ content }}
       </section>
       <section id="nsf_section">
-        hi
+        <nav>
+          <ul></ul>
+        </nav>
+        {% include conference.md %}
       </section>
       <footer>
         {% if site.github.is_project_page %}
