@@ -6,6 +6,17 @@
     }
   </style>
 
+  <script>
+    function click(e, id) {
+      let el = document.getElementById(id);
+      if (el !== undefined) {
+        el.click();
+        e.preventDefault();
+        e.stopImmediatePropagation();
+      }
+    }
+  </script>
+
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -29,12 +40,10 @@
       <div id="banner">
         <span id="logo"></span>
 
-        <div class="fork" style="width:100%; padding: 0; background-color: transparent;">
+        <div class="fork" style="width: 100%; padding: 0; margin: 0; background-color: transparent;">
+          <a href="#project" class="button" onClick="click(event, 'nav-conf')">Project</a>
+          <a id="nav-conf" href="#conference" class="button">Applications Conference</a>
           <a href="{{ site.github.owner_url }}" class="button">View On GitHub</a>
-          <nav>
-            <a href="#project-description" class="button">Project</a>
-            <a href="#quantum-applications-conference" class="button">Applications Conference</a>
-          </nav>
         </div>
 
         {% if site.show_downloads %}
@@ -52,10 +61,10 @@
         <nav>
           <ul></ul>
         </nav>
-        <section>
+        <section id="project">
           {{ content }}
         </section>
-        <section>
+        <section id="conference">
           {% include conference.html %}
         </section>
         <footer>
