@@ -52,18 +52,12 @@
       </div><!-- end banner -->
 
     <div class="wrapper">
-      <section id="main_section">
-        <nav>
-          <ul></ul>
-        </nav>
-        {{ content }}
-      </section>
-      <section id="nsf_section" style="display: none">
-        <nav>
-          <ul></ul>
-        </nav>
+      <div id="main_section">
+        {% include index.html %}
+      </div>
+      <div id="nsf_section">
         {% include conference.html %}
-      </section>
+      </div>
       <footer>
         {% if site.github.is_project_page %}
           <p>Project maintained by <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a></p>
