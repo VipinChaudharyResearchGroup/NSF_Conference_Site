@@ -41,20 +41,7 @@
       <div id="banner">
         <span id="logo"></span>
 
-        <div class="fork" style="padding: 0; margin-top: 0; margin-bottom: 0; background-color: transparent;">
-          <button href="#project" class="button" onClick="click(event, 'nav-conf')">Project</button>
-          <li class="tag-h1">
-          <a id="nav-conf" href="#conference" class="button">Applications Conference</a>
-        </li>
-        <nav>
-          <ul>
-        <li class="tag-h1">
-          <a id="nav-conf" href="#conference" class="button">Applications Conference</a>
-        </li>
-      </ul>
-      </nav>
-          <a href="{{ site.github.owner_url }}" class="button">View On GitHub</a>
-        </div>
+        <a href="{{ site.github.owner_url }}" class="button fork">View On GitHub</a>
 
         {% if site.show_downloads %}
           <div class="downloads">
@@ -71,10 +58,10 @@
         <nav>
           <ul></ul>
         </nav>
-        <section id="project">
+        <section>
           {{ content }}
         </section>
-        <section id="conference">
+        <section>
           {% include conference.html %}
         </section>
         <footer>
