@@ -29,9 +29,11 @@
       <div id="banner">
         <span id="logo"></span>
 
-        <a href="{{ site.github.owner_url }}" class="button fork">View On GitHub</a>
-        <a href="#project" class="button">Homepage</a>
-        <a href="#conference" class="button">NSF Conference</a>
+        <div class="fork">
+          <a href="{{ site.github.owner_url }}" class="button">View On GitHub</a>
+          <a href="#project-description" class="button">Homepage</a>
+          <a href="#quantum-applications-conference" class="button">NSF Conference</a>
+        </div>
 
         {% if site.show_downloads %}
           <div class="downloads">
