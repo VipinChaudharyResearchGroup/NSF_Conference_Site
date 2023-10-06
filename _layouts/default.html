@@ -29,10 +29,16 @@
       <div id="banner">
         <span id="logo"></span>
 
-        <div class="fork">
+        <div class="fork" style="width:100%; padding: 0; background-color: transparent;">
           <a href="{{ site.github.owner_url }}" class="button">View On GitHub</a>
-          <a href="#project-description" class="button">Homepage</a>
-          <a href="#quantum-applications-conference" class="button">NSF Conference</a>
+          <nav>
+            <ul>
+              <li class="tag-h1">
+          <a href="#project-description" class="button">Project</a>
+        </li>
+        </ul>
+        </nav>
+          <a href="#quantum-applications-conference" class="button">Applications Conference</a>
         </div>
 
         {% if site.show_downloads %}
