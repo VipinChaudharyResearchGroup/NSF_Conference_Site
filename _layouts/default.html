@@ -12,6 +12,7 @@
       if (el !== undefined) {
         el.click();
         e.preventDefault();
+        e.stopPropagation();
         e.stopImmediatePropagation();
       }
     }
@@ -41,7 +42,7 @@
         <span id="logo"></span>
 
         <div class="fork" style="padding: 0; margin-top: 0; margin-bottom: 0; background-color: transparent;">
-          <span href="#project" class="button" onClick="click(event, 'nav-conf')">Project</span>
+          <button href="#project" class="button" onClick="click(event, 'nav-conf')">Project</button>
           <a id="nav-conf" href="#conference" class="button">Applications Conference</a>
           <a href="{{ site.github.owner_url }}" class="button">View On GitHub</a>
         </div>
