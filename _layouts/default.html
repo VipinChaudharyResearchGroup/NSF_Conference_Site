@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 <!doctype html>
 <html lang="{{ site.lang | default: "en-US" }}">
   <script>
@@ -12,8 +16,6 @@
       ['main', 'nsf'].forEach(s => set_visible(s, false));
       set_visible(page, true)
     }
-
-    ['main', 'nsf'].forEach(s => set_visible(s, false));
   </script>
   <head>
     <meta charset="utf-8">
@@ -60,7 +62,7 @@
         </nav>
         {{ content }}
       </section>
-      <section id="nsf_section">
+      <section id="nsf_section" style="display: none">
         <nav>
           <ul></ul>
         </nav>
