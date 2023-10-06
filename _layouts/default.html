@@ -38,7 +38,7 @@
 
         <button class="button" onClick="navigate('main')">Homepage</button>
         <button class="button" onClick="navigate('nsf')">NSF Conference</button>
-        <a href="{{ site.github.owner_url }}" class="button"><strong>View On GitHub</strong></a>
+        <a href="{{ site.github.owner_url }}" class="button">View On GitHub</a>
 
         {% if site.show_downloads %}
           <div class="downloads">
@@ -52,6 +52,9 @@
       </div><!-- end banner -->
 
     <div class="wrapper">
+      <section>
+        {% include_relative test.md %}
+      </section>
       <section id="main_section">
         <nav>
           <ul></ul>
@@ -62,7 +65,7 @@
         <nav>
           <ul></ul>
         </nav>
-        {% include_relative conference.md %}
+        {% include conference.html %}
       </section>
       <footer>
         {% if site.github.is_project_page %}
