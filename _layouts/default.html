@@ -22,7 +22,7 @@
     <script>
       function click(e, id) {
         let el = document.getElementById(id);
-        if (el !== undefined) {
+        if (el !== null) {
           el.click();
           e.preventDefault();
           e.stopPropagation();
@@ -43,7 +43,14 @@
 
         <div class="fork" style="padding: 0; margin-top: 0; margin-bottom: 0; background-color: transparent;">
           <button href="#project" class="button" onClick="click(event, 'nav-conf')">Project</button>
+          <li class="tag-h1">
           <a id="nav-conf" href="#conference" class="button">Applications Conference</a>
+        </li>
+        <nav>
+        <li class="tag-h1">
+          <a id="nav-conf" href="#conference" class="button">Applications Conference</a>
+        </li>
+      </nav>
           <a href="{{ site.github.owner_url }}" class="button">View On GitHub</a>
         </div>
 
