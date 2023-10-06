@@ -1,5 +1,11 @@
 <!doctype html>
 <html lang="{{ site.lang | default: "en-US" }}">
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -24,7 +30,7 @@
         <span id="logo"></span>
 
         <a href="{{ site.github.owner_url }}" class="button fork">View On GitHub</a>
-        <a href="#main" class="button">Homepage</a>
+        <a href="#project" class="button">Homepage</a>
         <a href="#conference" class="button">NSF Conference</a>
 
         {% if site.show_downloads %}
@@ -42,10 +48,10 @@
         <nav>
           <ul></ul>
         </nav>
-        <section id="main">
+        <section>
           {{ content }}
         </section>
-        <section id="conference">
+        <section>
           {% include conference.html %}
         </section>
         <footer>

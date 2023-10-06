@@ -1,4 +1,4 @@
-# Project Description
+<h1 id="project">Project Description</h1>
 
 <img width="150" img align="right" alt="NSF-logo" src="https://user-images.githubusercontent.com/5705572/95711667-1d953c00-0c18-11eb-817b-1cc6a90d504d.png">
 
