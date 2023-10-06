@@ -1,18 +1,5 @@
 <!doctype html>
 <html lang="{{ site.lang | default: "en-US" }}">
-  <script>
-    function set_visible(page, vis) {
-      let el = document.getElementById(`${page}_section`);
-      if (el !== undefined) {
-        el.style.display = vis ? 'block' : 'none';
-      }
-    }
-
-    function navigate(page) {
-      ['main', 'nsf'].forEach(s => set_visible(s, false));
-      set_visible(page, true)
-    }
-  </script>
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -36,9 +23,7 @@
       <div id="banner">
         <span id="logo"></span>
 
-        <button class="button" onClick="navigate('main')">Homepage</button>
-        <button class="button" onClick="navigate('nsf')">NSF Conference</button>
-        <a href="{{ site.github.owner_url }}" class="button">View On GitHub</a>
+        <a href="{{ site.github.owner_url }}" class="button fork">View On GitHub</a>
 
         {% if site.show_downloads %}
           <div class="downloads">
@@ -51,33 +36,38 @@
         {% endif %}
       </div><!-- end banner -->
 
-    <div class="wrapper">
-      <nav>
-        <ul></ul>
-      </nav>
-      <section>
-        {{ content }}
-      </section>
-      <section>
-        {% include conference.html %}
-      </section>
-      <footer>
-        {% if site.github.is_project_page %}
-          <p>Project maintained by <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a></p>
-        {% endif %}
-        <p><small> © 2021, CWRU,KST, MISSTATE, and UW.</small></p>
-      </footer>
-    </div>
+      <div class="wrapper">
+        <div style="width: 100%; background-color: lightgray; border-radius: 5px; padding: 2px;">
+          <button class="button"><a href="#main">Homepage</a></button>
+          <button class="button"><a href="#conference">NSF Conference</a></button>
+        </div>
 
-    {% if site.google_analytics %}
-      <script>
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-        ga('create', '{{ site.google_analytics }}', 'auto');
-        ga('send', 'pageview');
-      </script>
-    {% endif %}
+        <nav>
+          <ul></ul>
+        </nav>
+        <section id="main">
+          {{ content }}
+        </section>
+        <section is="conference">
+          {% include conference.html %}
+        </section>
+        <footer>
+          {% if site.github.is_project_page %}
+            <p>Project maintained by <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a></p>
+          {% endif %}
+          <p><small> © 2021, CWRU,KST, MISSTATE, and UW.</small></p>
+        </footer>
+      </div>
+
+      {% if site.google_analytics %}
+        <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+          ga('create', '{{ site.google_analytics }}', 'auto');
+          ga('send', 'pageview');
+        </script>
+      {% endif %}
   </body>
 </html>
