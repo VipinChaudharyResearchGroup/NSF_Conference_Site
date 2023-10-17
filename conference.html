@@ -1,41 +1,12 @@
----
----
-
 <!DOCTYPE html>
-<html>
+<html lang="{{ site.lang | default: " en-US" }}">
 
 <head>
-  <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <script src="https://code.jquery.com/jquery-3.3.0.min.js"
-    integrity="sha256-RTQy8VOmNlT6b2PIRur37p6JEBZUE7o8wPgMvu18MC4=" crossorigin="anonymous"></script>
-  <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+  {% include shared/head.html %}
 </head>
 
 <body>
-  <header>
-    <h1>{{ site.title | default: site.github.repository_name }}</h1>
-    <p>{{ site.description | default: site.github.project_tagline }}</p>
-  </header>
-
-  <div id="banner">
-    <span id="logo"></span>
-
-    <a href="/conference" class="button">NSF Workshop</a>
-    <a href="{{ site.github.owner_url }}" class="button fork">View On GitHub</a>
-    -
-    {% if site.show_downloads %}
-    <div class="downloads">
-      <span>Downloads:</span>
-      <ul>
-        <li><a href="{{ site.github.zip_url }}" class="button">ZIP</a></li>
-        <li><a href="{{ site.github.tar_url }}" class="button">TAR</a></li>
-      </ul>
-    </div>
-    {% endif %}
-  </div><!-- end banner -->
+  {% include shared/header.html %}
 
   <div class="wrapper">
     <nav>
@@ -44,13 +15,10 @@
     <section>
       {% include conference_content.html %}
     </section>
-    <footer>
-      {% if site.github.is_project_page %}
-      <p>Project maintained by <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a></p>
-      {% endif %}
-      <p><small> © 2021, CWRU,KST, MISSTATE, and UW.</small></p>
-    </footer>
+    {% include shared/footer.html %}
   </div>
+
+  {% include shared/analytics.html %}
 </body>
 
 </html>
