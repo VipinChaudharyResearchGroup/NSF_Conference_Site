@@ -8,7 +8,7 @@
     <span id="logo"></span>
 
     {% for page in site.data.pages.pages %}
-    <a href="/{{ site.root }}/{{ page.url }}" class="button">{{ page.title }}</a>
+    <a href="/{{ site.data.pages.root }}/{{ page.url }}" class="button">{{ page.title }}</a>
     {% endfor %}
     <a href="{{ site.github.owner_url }}" class="button fork">View On GitHub</a>
     -
