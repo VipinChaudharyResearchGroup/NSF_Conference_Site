@@ -4,11 +4,3 @@ show_downloads: false
 description: The official website of PPoSS SSSHNC project.
 google_analytics: true
 
-root: /NSF_Conference_Site
-pages:
-- title: Home
-  url: /
-- title: Workshop on Quantum Applications
-  url: /conference
-- title: Pay Fees
-  url: /payment

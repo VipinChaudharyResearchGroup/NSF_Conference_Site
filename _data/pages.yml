@@ -1,0 +1,8 @@
+root: NSF_Conference_Site
+pages:
+- title: Home
+  url:
+- title: Workshop on Quantum Applications
+  url: conference
+- title: Pay Fees
+  url: payment
