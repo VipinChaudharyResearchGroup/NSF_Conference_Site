@@ -1,110 +1,168 @@
-<!DOCTYPE html>
-<html>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+  integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+  crossorigin="anonymous" referrerpolicy="no-referrer" />
+<style>
+  .link-btn {
+    color: black;
+    text-decoration: none;
+    padding: 2px;
+  }
 
-<head>
-  <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <script src="https://code.jquery.com/jquery-3.3.0.min.js"
-    integrity="sha256-RTQy8VOmNlT6b2PIRur37p6JEBZUE7o8wPgMvu18MC4=" crossorigin="anonymous"></script>
-  <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
-</head>
+  .header {
+    margin-top: 10px;
+  }
 
-<body>
-  <style>
-    .link-btn {
-      color: black;
-      text-decoration: none;
-      padding: 2px;
-    }
+  /* Row */
+  .flex-row {
+    width: fit-content;
+    display: flex;
+    flex-direction: row;
+    border: 1px solid black;
+    padding: 0;
+  }
 
-    .header {
-      margin-top: 10px;
-    }
+  /* -----Table Styles----- */
+  /* Column */
+  .flex-column {
+    display: flex;
+    flex-direction: column;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+  }
 
-    /* Row */
-    .flex-row {
-      width: fit-content;
-      display: flex;
-      flex-direction: row;
-      border: 1px solid black;
-      padding: 0;
-    }
+  /* Bordered rows */
+  .flex-column span {
+    padding: 0 2px;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+  }
 
-    /* -----Table Styles----- */
-    /* Column */
-    .flex-column {
-      display: flex;
-      flex-direction: column;
-      border-left: 1px solid black;
-      border-right: 1px solid black;
-    }
+  /* Zebra stripes */
+  .flex-column span:nth-child(odd) {
+    background-color: rgb(225, 225, 225);
+  }
 
-    /* Bordered rows */
-    .flex-column span {
-      padding: 0 2px;
-      border-top: 1px solid black;
-      border-bottom: 1px solid black;
-    }
+  /* Header */
+  .flex-column span:first-child {
+    font-weight: bold;
+    background-color: rgb(180, 180, 180);
+    border-top: 0;
+    text-align: center;
+  }
 
-    /* Zebra stripes */
-    .flex-column span:nth-child(odd) {
-      background-color: rgb(225, 225, 225);
-    }
+  /* Last row */
+  .flex-column span:last-child {
+    border-bottom: 0;
+  }
 
-    /* Header */
-    .flex-column span:first-child {
-      font-weight: bold;
-      background-color: rgb(180, 180, 180);
-      border-top: 0;
-      text-align: center;
-    }
+  /* -----Table Styles----- */
+</style>
 
-    /* Last row */
-    .flex-column span:last-child {
-      border-bottom: 0;
-    }
+<h1 id="conference">Workshop on Quantum Applications</h1>
 
-    /* -----Table Styles----- */
-  </style>
+<h2 class="header">Details</h2>
 
-  <header>
-    <h1>{{ site.title | default: site.github.repository_name }}</h1>
-    <p>{{ site.description | default: site.github.project_tagline }}</p>
-  </header>
+<p>
+  This is the first of three invited workshops to inform the potential path towards the challenges in developing a
+  full software stack for a cluster of heterogeneous Noisy Intermediate-Scale Quantum (NISQ) machines.
+  This workshop focuses on quantum applications and their requirements for the full-stack.
+  The outcome will be a comprehensive report to the community that will span quantum applications,
+  software stack and hardware.
+</p>
 
-  <div id="banner">
-    <span id="logo"></span>
-
-    <a href="/conference.html" class="button">NSF Workshop</a>
-    <a href="{{ site.github.owner_url }}" class="button fork">View On GitHub</a>
-    -
-    {% if site.show_downloads %}
-    <div class="downloads">
-      <span>Downloads:</span>
-      <ul>
-        <li><a href="{{ site.github.zip_url }}" class="button">ZIP</a></li>
-        <li><a href="{{ site.github.tar_url }}" class="button">TAR</a></li>
-      </ul>
-    </div>
-    {% endif %}
-  </div><!-- end banner -->
-
-  <div class="wrapper">
-    <nav>
-      <ul></ul>
-    </nav>
-    <section>
-      {% include conference.html %}
-    </section>
-    <footer>
-      {% if site.github.is_project_page %}
-      <p>Project maintained by <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a></p>
-      {% endif %}
-      <p><small> © 2021, CWRU,KST, MISSTATE, and UW.</small></p>
-    </footer>
+<h2 class="header">Agenda</h2>
+<p>November 6, 2023. 8am-5pm</p>
+<div class="flex-row">
+  <div class="flex-column" style="text-align: end;">
+    <span>Time</span>
+    <span>7:30AM</span>
+    <span>8:00AM</span>
+    <span>8:05AM</span>
+    <span>8:15AM</span>
+    <span>8:45AM</span>
+    <span>9:30AM</span>
+    <span>9:45AM</span>
+    <span>10:00AM</span>
+    <span>10:30AM</span>
+    <span>11:15AM</span>
+    <span>11:30AM</span>
+    <span>12:00PM</span>
+    <span>1:30PM</span>
+    <span>2:00PM</span>
+    <span>2:45PM</span>
+    <span>3:00PM</span>
+    <span>3:15PM</span>
+    <span>3:45PM</span>
+    <span>4:30PM</span>
+    <span>4:45PM</span>
+    <span>5:15PM</span>
+    <span>6:00PM</span>
   </div>
-</body>
+  <div class="flex-column">
+    <span>Activity</span>
+    <span>Registration and Breakfast</span>
+    <span>Welcome by NSF</span>
+    <span>Expectations from Workshop - PPoSS PIs</span>
+    <span>Invited Talk</span>
+    <span>Breakout Sessions</span>
+    <span>Reporting by Breakout Sessions</span>
+    <span>Coffee Break</span>
+    <span>Invited Talk</span>
+    <span>Breakout Sessions</span>
+    <span>Reporting by Breakout Sessions</span>
+    <span>Lunch and Networking</span>
+    <span>Visit CCF for IBM Quantum Computer 127 Qubit</span>
+    <span>Invited Talk</span>
+    <span>Breakout Sessions</span>
+    <span>Reporting by Breakout Sessions</span>
+    <span>Coffee Break</span>
+    <span>Invited Talk</span>
+    <span>Breakout Sessions</span>
+    <span>Reporting by Breakout Sessions</span>
+    <span>Open Session</span>
+    <span>Writing Breakout Session Reports</span>
+    <span>Dinner</span>
+  </div>
+</div>
 
-</html>
+
+<h2 class="header">Logistics</h2>
+<b>Location:</b>
+<a
+  href="https://www.marriott.com/en-us/hotels/clece-courtyard-cleveland-university-circle/overview/?scid=f2ae0541-1279-4f24-b197-a979c79310b0">Courtyard
+  by Mariott</a> next to Case Western Reserve University
+<br><br>
+<iframe
+  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d357.6453339438518!2d-81.60535264696671!3d41.50797190893409!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8830fb899834b8d1%3A0xd79d3884acb4b374!2sCourtyard%20by%20Marriott%20Cleveland%20University%20Circle!5e0!3m2!1sen!2sus!4v1696612956580!5m2!1sen!2sus"
+  width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+  referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+<br>
+
+<br>
+
+
+
+<br>
+<h2 class="header">Housing Accommodations</h2>
+
+Rooms will be available in Courtyard at a discounted promo rate. Pricing information will be sent out with conference
+invitations.
+
+<br>
+<h2 class="header">Participants</h2>
+Coming soon
+
+<br>
+<h2 class="header">Contact</h2>
+
+<h4 style="display: inline">Vipin Chaudhary</h4>
+<a href="https://engineering.case.edu/about/school-directory/vipin-chaudhary" class="link-btn">
+  <i class="fa fa-globe"></i>
+</a>
+<a href="mailto:vipin.chaudhary@case.edu" class="link-btn">
+  <i class="fa fa-envelope"></i>
+</a>
+<a href="https://www.linkedin.com/in/vipin-chaudhary-379529/" class="link-btn">
+  <i class="fa-brands fa-linkedin"></i>
+</a>
