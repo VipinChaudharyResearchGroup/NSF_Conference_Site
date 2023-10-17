@@ -2,7 +2,7 @@ root: NSF_Conference_Site
 pages:
 - title: Home
   url:
-- title: Workshop on Quantum Applications
+- title: Quantum Applications
   url: conference
-- title: Pay Fees
+- title: Payment
   url: payment
