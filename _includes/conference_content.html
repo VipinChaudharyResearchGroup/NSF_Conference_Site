@@ -2,6 +2,73 @@
   integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
   crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+<script>
+  const AGENDA = "2PACX-1vS9ySFPe-5_7irGSfrTqZxABmXilN-CSUfUoSBsvNfuCjDesXMjY5Llj5NHEOTC6UZkNTWGrbdj4uws";
+  const ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split('');
+
+  function col(x) {
+    if (x === undefined || x === null) {
+      return '';
+    }
+
+    x -= 1;
+    d = Math.floor(x / 26);
+    return `${d === 0 ? '' : ALPHABET[d - 1]}${ALPHABET[x % 26]}`;
+  }
+
+  function row(y) {
+    if (y === undefined || y === null) {
+      return '';
+    }
+
+    y -= 1;
+    return `${y + 1}`;
+  }
+
+  function range(x1, y1, x2, y2) {
+    return `${col(x1)}${row(y1)}:${col(x2)}${row(y2)}`;
+  }
+
+  function parse_range(range) {
+    console.log(range.search(/[A-Z]*[0-9]*:[A-Z]*[0-9]*/g));
+  }
+
+  parse_range('A26:B');
+
+  function get_data(sheet_id, x1, y1, x2, y2) {
+    return fetch(`https://docs.google.com/spreadsheets/d/e/${sheet_id}/pub?output=csv&range=${range(x1, y1, x2, y2)}`, {
+      method: 'GET'
+    }).then(res => res.text()).then(txt => {
+      var cols = txt.split('\n');
+      if (y2 === undefined) {
+        // Stop at first empty row
+        cols = cols.slice(0, cols.findIndex(v => v === ''));
+      }
+      return cols.map(row => row.split(','));
+    });
+  }
+
+  function fill_table(id, sheet_id, x1, y1, x2, y2) {
+    table = document.getElementById(id);
+
+    if (table == undefined || table == null) {
+      return;
+    }
+
+    get_data(sheet_id, x1, y1, x2, y2).then(data => {
+      if (data.length == 0) {
+        table.innerHTML = "";
+        return;
+      }
+
+      // Headers
+      headers = data[0].map(txt => `<th>${txt}</th>`).join('');
+      body = data.slice(1).map(row => `<tr>${row.map(txt => `<td>${txt}</td>`).join('')}</tr>`).join('');
+      table.innerHTML = `<tr>${headers}</tr>${body}`;
+    });
+  }
+</script>
+
 <style>
   .link-btn {
     color: black;
@@ -23,40 +90,30 @@
   }
 
   /* -----Table Styles----- */
-  /* Column */
-  .flex-column {
-    display: flex;
-    flex-direction: column;
-    border-left: 1px solid black;
-    border-right: 1px solid black;
+  /* No space between cells */
+  table {
+    border-collapse: collapse;
   }
 
-  /* Bordered rows */
-  .flex-column span {
-    padding: 0 3px;
-    border-top: 1px solid black;
-    border-bottom: 1px solid black;
+  /* Table borders */
+  table,
+  td,
+  th {
+    border: 2px solid black;
   }
 
-  /* Zebra stripes */
-  .flex-column span:nth-child(odd) {
-    background-color: rgb(225, 225, 225);
-  }
-
-  /* Header */
-  .flex-column span:first-child {
+  /* Column Headers */
+  th {
     font-weight: bold;
     background-color: rgb(180, 180, 180);
     border-top: 0;
     text-align: center;
   }
 
-  /* Last row */
-  .flex-column span:last-child {
-    border-bottom: 0;
+  /* Zebra Stripes */
+  table tr:nth-child(odd) {
+    background-color: rgb(225, 225, 225);
   }
-
-  /* -----Table Styles----- */
 </style>
 
 <h1>Workshop on Quantum Applications</h1>
@@ -72,60 +129,11 @@
 </p>
 
 <h2 class="header">Agenda</h2>
-<p>November 6, 2023. 8am-5pm</p>
-<div class="flex-row">
-  <div class="flex-column" style="text-align: end;">
-    <span>Time</span>
-    <span>7:30AM</span>
-    <span>8:00AM</span>
-    <span>8:05AM</span>
-    <span>8:15AM</span>
-    <span>8:45AM</span>
-    <span>9:30AM</span>
-    <span>9:45AM</span>
-    <span>10:00AM</span>
-    <span>10:30AM</span>
-    <span>11:15AM</span>
-    <span>11:30AM</span>
-    <span>12:00PM</span>
-    <span>1:30PM</span>
-    <span>2:00PM</span>
-    <span>2:45PM</span>
-    <span>3:00PM</span>
-    <span>3:15PM</span>
-    <span>3:45PM</span>
-    <span>4:30PM</span>
-    <span>4:45PM</span>
-    <span>5:15PM</span>
-    <span>6:00PM</span>
-  </div>
-  <div class="flex-column">
-    <span>Activity</span>
-    <span>Registration and Breakfast</span>
-    <span>Welcome by NSF</span>
-    <span>Expectations from Workshop - PPoSS PIs</span>
-    <span>Invited Talk</span>
-    <span>Breakout Sessions</span>
-    <span>Reporting by Breakout Sessions</span>
-    <span>Coffee Break</span>
-    <span>Invited Talk</span>
-    <span>Breakout Sessions</span>
-    <span>Reporting by Breakout Sessions</span>
-    <span>Lunch and Networking</span>
-    <span>Visit CCF for IBM Quantum Computer 127 Qubit</span>
-    <span>Invited Talk</span>
-    <span>Breakout Sessions</span>
-    <span>Reporting by Breakout Sessions</span>
-    <span>Coffee Break</span>
-    <span>Invited Talk</span>
-    <span>Breakout Sessions</span>
-    <span>Reporting by Breakout Sessions</span>
-    <span>Open Session</span>
-    <span>Writing Breakout Session Reports</span>
-    <span>Dinner</span>
-  </div>
-</div>
-
+<p>November 6, 2023</p>
+<table id="table"></table>
+<script>
+  // fill_table('table', AGENDA, 1, 1, 2, 21);
+</script>
 
 <h2 class="header">Logistics</h2>
 <b>Location:</b>
