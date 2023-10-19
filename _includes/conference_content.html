@@ -4,48 +4,6 @@
 
 <script>
   const AGENDA = "2PACX-1vS9ySFPe-5_7irGSfrTqZxABmXilN-CSUfUoSBsvNfuCjDesXMjY5Llj5NHEOTC6UZkNTWGrbdj4uws";
-  const ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split('');
-
-  function nan(x) {
-    return x === undefined || x === null || x === NaN;
-  }
-
-  function col(x) {
-    if (nan(x)) {
-      return '';
-    }
-
-    x -= 1;
-    d = Math.floor(x / 26);
-    return `${d === 0 ? '' : ALPHABET[d - 1]}${ALPHABET[x % 26]}`;
-  }
-
-  function col_inv(x) {
-    var digits = x.split('').map(ch => ch.charCodeAt(0) - "A".charCodeAt(0) + 1);
-    return digits.reverse().reduce((s, d, i) => s + d * 26 ** i, 0);
-  }
-
-  function row(y) {
-    if (nan(y)) {
-      return '';
-    }
-
-    y -= 1;
-    return `${y + 1}`;
-  }
-
-  function row_inv(y) {
-    return +y;
-  }
-
-  function range(x1, y1, x2, y2) {
-    return `${col(x1)}${row(y1)}:${col(x2)}${row(y2)}`;
-  }
-
-  function parse_range(range) {
-    var match = range.matchAll(/([A-Z]*)([0-9]*):([A-Z]*)([0-9]*)/g).next().value.map(s => s === "" ? undefined : s);
-    return [col_inv(match[1]), row_inv(match[2]), col_inv(match[3]), row_inv(match[4])];
-  }
 
   function get_data(sheet_id, range, unbounded_y) {
     return fetch(`https://docs.google.com/spreadsheets/d/e/${sheet_id}/pub?output=csv&range=${range}`, {
